@@ -1,60 +1,83 @@
-// ===============================
-// CADASTRO DE IMÓVEIS
-// Para adicionar imóveis, edite apenas este array
-// ===============================
-
-const imoveis = [
-  {
-    titulo: "Casa Moderna",
-    preco: "R$ 750.000",
-    localizacao: "São Paulo - SP",
-    tipo: "casa",
-    foto: "eco 1.png"
-  },
-  {
-    titulo: "Apartamento Central",
-    preco: "R$ 450.000",
-    localizacao: "Campinas - SP",
-    tipo: "apartamento",
-    foto: "https://via.placeholder.com/400x300"
-  }
-];
-
-// ===============================
-// RENDERIZA IMÓVEIS
-// ===============================
-
+let imoveis = [];
 const lista = document.getElementById("lista-imoveis");
+const detalhes = document.getElementById("detalhes");
 
-function renderImoveis(filtro = "") {
+// CARREGA O JSON
+fetch("imoveis.json")
+  .then(res => res.json())
+  .then(data => {
+    imoveis = data;
+    carregarCidades();
+    render();
+  });
+
+// POPULA CIDADES
+function carregarCidades() {
+  const cidades = [...new Set(imoveis.map(i => i.cidade))];
+  const select = document.getElementById("cidade");
+
+  cidades.forEach(c => {
+    const option = document.createElement("option");
+    option.value = c;
+    option.textContent = c;
+    select.appendChild(option);
+  });
+}
+
+// RENDERIZA LISTA
+function render() {
   lista.innerHTML = "";
+  detalhes.classList.add("hidden");
+
+  const tipo = document.getElementById("tipo").value;
+  const cidade = document.getElementById("cidade").value;
+  const preco = document.getElementById("preco").value;
 
   imoveis
-    .filter(i => i.localizacao.toLowerCase().includes(filtro) || i.tipo.toLowerCase().includes(filtro))
-    .forEach(imovel => {
+    .filter(i =>
+      (!tipo || i.tipo === tipo) &&
+      (!cidade || i.cidade === cidade) &&
+      (!preco || i.preco <= preco)
+    )
+    .forEach(i => {
       const card = document.createElement("div");
       card.className = "card";
-
       card.innerHTML = `
-        <img src="${imovel.foto}">
+        <img src="${i.foto}">
         <div>
-          <h3>${imovel.titulo}</h3>
-          <p>${imovel.localizacao}</p>
-          <strong>${imovel.preco}</strong>
-          <br><br>
-          <a class="cta" href="https://wa.me/5567981600051" target="_blank">Ver detalhes</a>
+          <h3>${i.titulo}</h3>
+          <p>${i.cidade}</p>
+          <p>${i.quartos} quartos</p>
+          <strong>R$ ${i.preco.toLocaleString()}</strong>
+          <button onclick="verDetalhes(${i.id})">Ver Detalhes</button>
         </div>
       `;
-
       lista.appendChild(card);
     });
 }
 
-renderImoveis();
+// DETALHES
+function verDetalhes(id) {
+  const i = imoveis.find(im => im.id === id);
+  detalhes.classList.remove("hidden");
+  lista.innerHTML = "";
 
-// ===============================
-// FILTRO
-// ===============================
-document.getElementById("filtro").addEventListener("input", e => {
-  renderImoveis(e.target.value.toLowerCase());
-});
+  detalhes.innerHTML = `
+    <h2>${i.titulo}</h2>
+    <img src="${i.foto}" style="max-width:400px">
+    <p><strong>Cidade:</strong> ${i.cidade}</p>
+    <p><strong>Tipo:</strong> ${i.tipo}</p>
+    <p><strong>Quartos:</strong> ${i.quartos}</p>
+    <p><strong>Preço:</strong> R$ ${i.preco.toLocaleString()}</p>
+    <p>${i.descricao}</p>
+    <br>
+    <a href="https://wa.me/5567981600051" target="_blank">Falar no WhatsApp</a>
+    <br><br>
+    <button onclick="render()">Voltar</button>
+  `;
+}
+
+// FILTROS EM TEMPO REAL
+document.querySelectorAll("select").forEach(el =>
+  el.addEventListener("change", render)
+);
