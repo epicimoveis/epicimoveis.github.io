@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "titulo": "Casa Moderna com Piscina",
+    "tipo": "Casa",
+    "cidade": "Campo Grande - MS",
+    "preco": 850000,
+    "quartos": 3,
+    "foto": "https://via.placeholder.com/600x400",
+    "descricao": "Casa moderna com excelente acabamento e área gourmet."
+  },
+  {
+    "id": 2,
+    "titulo": "Apartamento no Centro",
+    "tipo": "Apartamento",
+    "cidade": "Dourados - MS",
+    "preco": 420000,
+    "quartos": 2,
+    "foto": "https://via.placeholder.com/600x400",
+    "descricao": "Apartamento bem localizado, próximo a comércios."
+  },
+  {
+    "id": 3,
+    "titulo": "Terreno Residencial",
+    "tipo": "Terreno",
+    "cidade": "Três Lagoas - MS",
+    "preco": 250000,
+    "quartos": 0,
+    "foto": "https://via.placeholder.com/600x400",
+    "descricao": "Terreno plano, pronto para construir."
+  },
+  {
+    "id": 4,
+    "titulo": "Sala Comercial",
+    "tipo": "Comercial",
+    "cidade": "Campo Grande - MS",
+    "preco": 1200000,
+    "quartos": 0,
+    "foto": "https://via.placeholder.com/600x400",
+    "descricao": "Sala comercial em região valorizada."
+  }
+]
