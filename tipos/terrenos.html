@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Casas à Venda | Epic Imóveis</title>
+  <meta name="description" content="Casas à venda com segurança jurídica em MS.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <h1>Casas à Venda</h1>
+  <p>Epic Imóveis • Segurança Jurídica</p>
+</header>
+
+<section class="grid" id="lista-imoveis"></section>
+
+<a class="whatsapp" href="https://wa.me/5567981600051" target="_blank">WhatsApp</a>
+
+<script>
+fetch("../imoveis.json")
+  .then(r => r.json())
+  .then(data => {
+    const lista = document.getElementById("lista-imoveis");
+    data.filter(i => i.tipo === "Casa")
+      .forEach(i => {
+        lista.innerHTML += `
+          <div class="card">
+            <img src="${i.foto}">
+            <div>
+              <h3>${i.titulo}</h3>
+              <p>${i.cidade}</p>
+              <strong>R$ ${i.preco.toLocaleString()}</strong>
+              <br><br>
+              <a class="cta" href="https://wa.me/5567981600051">Ver Casa</a>
+            </div>
+          </div>
+        `;
+      });
+  });
+</script>
+</body>
+</html>
