@@ -1,52 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
 :root {
-  --azul: #0a2540;
-  --cinza: #f4f6f9;
-  --dourado: #c9a24d;
+  --primary: #0a2540;
+  --secondary: #0066ff;
+  --bg: #f4f6f8;
+  --text: #1f2933;
+  --muted: #6b7280;
+  --card: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: var(--cinza);
-  color: #222;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
-header {
-  background: linear-gradient(135deg, #0a2540, #102f57);
-  color: white;
-  padding: 40px 20px;
-}
-
-header h1 {
-  font-size: 32px;
-  letter-spacing: 1px;
-}
-
-.hero {
-  padding: 60px 20px;
-  text-align: center;
+/* HEADER */
+.header {
   background: white;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.hero h2 {
-  font-size: 36px;
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.cta {
-  background: var(--dourado);
-  color: black;
-  padding: 15px 25px;
-  border-radius: 6px;
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.nav a {
+  margin-left: 20px;
   text-decoration: none;
-  font-weight: bold;
+  color: var(--text);
+  font-weight: 500;
 }
 
-.card {
+/* BUSCA */
+.search-bar {
   background: white;
+  padding: 24px;
+  margin: 20px auto;
+  max-width: 1200px;
   border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,.05);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.search-bar select {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+/* CONTEÚDO */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* FILTROS */
+.filters {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.filters h3 {
+  margin-bottom: 15px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* CARD IMÓVEL */
+.card {
+  background: var(--card);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 25px rgba(0,0,0,.08);
   transition: transform .3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 16px;
+}
+
+.card-body h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.location {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.details-btn {
+  display: block;
+  margin-top: 12px;
+  padding: 10px;
+  text-align: center;
+  background: var(--primary);
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25d366;
+  color: white;
+  padding: 16px;
+  border-radius: 50%;
+  font-weight: bold;
+  text-decoration: none;
 }
