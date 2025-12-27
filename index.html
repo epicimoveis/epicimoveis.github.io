@@ -2,93 +2,59 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Epic Imóveis | Compra, Venda, Avaliação e Perícia Judicial</title>
+  <title>Epic Imóveis | Busca de Imóveis</title>
 
   <!-- SEO Básico -->
-  <meta name="description" content="Epic Imóveis - Corretor de imóveis, avaliador imobiliário, perito judicial e corretor público. Atendimento profissional e seguro.">
-  <meta name="keywords" content="imobiliária, corretor de imóveis, avaliação imobiliária, perícia judicial, leilões, bens públicos">
+  <meta name="description" content="Encontre casas, apartamentos, terrenos e imóveis comerciais com a Epic Imóveis. Compra, venda, avaliação e perícia judicial.">
+  <meta name="keywords" content="imóveis, casas, apartamentos, terrenos, imobiliária, Epic Imóveis">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
   <h1>Epic Imóveis</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#imoveis">Imóveis</a>
-    <a href="#avaliacao">Avaliação</a>
-    <a href="#pericia">Perícia Judicial</a>
-    <a href="#publico">Corretor Público</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </nav>
+  <p>Busca inteligente de imóveis com segurança jurídica</p>
 </header>
 
-<!-- HOME -->
-<section id="home" class="hero">
-  <h2>Negócios Imobiliários com Segurança Jurídica</h2>
-  <p>Compra, venda, avaliação, perícia judicial e corretagem pública.</p>
-  <a class="cta" href="https://wa.me/5567981600051" target="_blank">Falar com Especialista</a>
+<!-- FILTROS -->
+<section class="filtros">
+  <select id="tipo">
+    <option value="">Tipo do Imóvel</option>
+    <option value="Casa">Casa</option>
+    <option value="Apartamento">Apartamento</option>
+    <option value="Terreno">Terreno</option>
+    <option value="Comercial">Comercial</option>
+  </select>
+
+  <select id="cidade">
+    <option value="">Cidade</option>
+  </select>
+
+  <select id="preco">
+    <option value="">Faixa de Preço</option>
+    <option value="300000">Até R$ 300.000</option>
+    <option value="600000">Até R$ 600.000</option>
+    <option value="1000000">Até R$ 1.000.000</option>
+    <option value="99999999">Acima de R$ 1.000.000</option>
+  </select>
 </section>
 
-<!-- IMÓVEIS -->
-<section id="imoveis">
-  <h2>Imóveis Disponíveis</h2>
+<!-- LISTA -->
+<section class="grid" id="lista-imoveis"></section>
 
-  <input type="text" id="filtro" placeholder="Filtrar por cidade ou tipo">
+<!-- DETALHES -->
+<section id="detalhes" class="detalhes hidden"></section>
 
-  <div id="lista-imoveis" class="grid"></div>
-</section>
-
-<!-- AVALIAÇÃO -->
-<section id="avaliacao">
-  <h2>Avaliação de Imóveis</h2>
-  <p>Laudos técnicos e avaliações mercadológicas para venda, compra, inventário e processos judiciais.</p>
-  <a class="cta" href="#contato">Solicitar Avaliação</a>
-</section>
-
-<!-- PERÍCIA -->
-<section id="pericia">
-  <h2>Perícia Judicial Imobiliária</h2>
-  <p>Atuação como perito judicial e assistente técnico, com laudos claros, técnicos e fundamentados.</p>
-  <a class="cta" href="#contato">Solicitar Perícia</a>
-</section>
-
-<!-- CORRETOR PÚBLICO -->
-<section id="publico">
-  <h2>Corretor Público</h2>
-  <p>Assessoria especializada em bens públicos, leilões e processos administrativos.</p>
-  <a class="cta" href="#contato">Falar com Especialista</a>
-</section>
-
-<!-- SOBRE -->
-<section id="sobre">
-  <h2>Sobre a Epic Imóveis</h2>
-  <p>Atuamos com ética, transparência e segurança jurídica, oferecendo soluções completas no mercado imobiliário.</p>
-</section>
-
-<!-- CONTATO -->
-<section id="contato">
-  <h2>Contato</h2>
-
-  <!-- FORMULÁRIO (Formspree) -->
-  <form action="https://formspree.io/f/SEU_CODIGO_AQUI" method="POST">
-    <input type="text" name="nome" placeholder="Seu nome" required>
-    <input type="email" name="email" placeholder="Seu e-mail" required>
-    <textarea name="mensagem" placeholder="Como podemos ajudar?" required></textarea>
-    <button type="submit">Enviar</button>
-  </form>
-</section>
-
-<!-- BOTÃO WHATSAPP -->
-<a href="https://wa.me/5500000000000" class="whatsapp" target="_blank">WhatsApp</a>
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/5567981600051" target="_blank">WhatsApp</a>
 
 <footer>
-  <p>© 2025 Epic Imóveis - Todos os direitos reservados</p>
+  <p>
+    📞 (67) 98160-0051 | ✉️ alan@epicimoveis.com.br <br>
+    © 2025 Epic Imóveis
+  </p>
 </footer>
 
 <script src="script.js"></script>
