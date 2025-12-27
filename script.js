@@ -42,7 +42,7 @@ function renderImoveis(filtro = "") {
           <p>${imovel.localizacao}</p>
           <strong>${imovel.preco}</strong>
           <br><br>
-          <a class="cta" href="https://wa.me/5500000000000" target="_blank">Ver detalhes</a>
+          <a class="cta" href="https://wa.me/5567981600051" target="_blank">Ver detalhes</a>
         </div>
       `;
 
