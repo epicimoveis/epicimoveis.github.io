@@ -9,7 +9,7 @@ const imoveis = [
     preco: "R$ 750.000",
     localizacao: "São Paulo - SP",
     tipo: "casa",
-    foto: "https://via.placeholder.com/400x300"
+    foto: "eco 1.png"
   },
   {
     titulo: "Apartamento Central",
